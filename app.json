@@ -33,6 +33,19 @@
           "resizeMode": "contain",
           "backgroundColor": "#ffffff"
         }
+      ],
+      [
+        "expo-router",
+        {
+          "root": "./src/_routes"
+        }
+      ],
+      [
+        "expo-secure-store",
+        {
+          "configureAndroidBackup": true,
+          "faceIDPermission": "Allow expo-boilerplate to access your Face ID biometric data."
+        }
       ]
     ],
     "experiments": {

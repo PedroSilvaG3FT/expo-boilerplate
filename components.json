@@ -1,0 +1,6 @@
+{
+  "aliases": {
+    "lib": "src/_shared/design/lib",
+    "components": "src/_shared/design"
+  }
+}
