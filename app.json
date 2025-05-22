@@ -50,6 +50,15 @@
     ],
     "experiments": {
       "typedRoutes": true
-    }
+    },
+    "extra": {
+      "router": {
+        "root": "./src/_routes"
+      },
+      "eas": {
+        "projectId": "1db9a5fc-8533-4e32-a481-bcf44fac4b93"
+      }
+    },
+    "owner": "rikeg3ft"
   }
 }
