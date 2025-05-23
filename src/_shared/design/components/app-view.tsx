@@ -2,14 +2,14 @@ import { useThemeColor } from "@/hooks/useThemeColor";
 import { View, type ViewProps } from "react-native";
 
 export type IProps = ViewProps & {
-  lightColor?: string;
   darkColor?: string;
+  lightColor?: string;
 };
 
 export default function AppView({
   style,
-  lightColor,
   darkColor,
+  lightColor,
   ...otherProps
 }: IProps) {
   const backgroundColor = useThemeColor(

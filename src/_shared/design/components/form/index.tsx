@@ -83,7 +83,7 @@ const FormLabel = ({ children, className, ...props }: FormLabelProps) => {
 
   return (
     <AppText
-      className={cn("text-sm font-medium", error && "text-red-500", className)}
+      className={cn("text-sm font-medium", error && "text-red-400", className)}
       {...props}
     >
       {children}
@@ -119,7 +119,7 @@ const FormMessage = ({
 
   return (
     <AppText
-      className={cn("text-xs text-red-500 font-medium", className)}
+      className={cn("text-xs text-red-400 font-medium", className)}
       {...props}
     >
       {body}

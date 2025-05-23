@@ -48,8 +48,17 @@ export default function SignIn() {
           </Button>
         </FormContainer>
 
-        <Link href="/(auth)/sign-up">Cadastro</Link>
-        <Link href="/(auth)/forgot-password">Esqueci a senha</Link>
+        <Link href="/(auth)/sign-up">
+          <AppText>Cadastro</AppText>
+        </Link>
+
+        <Link href="/(auth)/forgot-password">
+          <AppText>Esqueci a senha</AppText>
+        </Link>
+
+        <Link href="/">
+          <AppText>Home</AppText>
+        </Link>
       </AppView>
     </AppView>
   );

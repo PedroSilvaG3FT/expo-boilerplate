@@ -9,6 +9,7 @@ import {
   Theme,
   ThemeProvider,
 } from "@react-navigation/native";
+import { PortalHost } from "@rn-primitives/portal";
 import { useFonts } from "expo-font";
 import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
@@ -59,6 +60,7 @@ export default function RootLayout() {
         <StatusBar style={isDarkColorScheme ? "light" : "dark"} />
 
         <View
+          className={isDarkColorScheme ? "dark" : ""}
           style={{
             flex: 1,
             backgroundColor: isDarkColorScheme
@@ -71,6 +73,8 @@ export default function RootLayout() {
             <Stack.Screen name="(auth)" options={{ headerShown: false }} />
             <Stack.Screen name="+not-found" />
           </Stack>
+
+          <PortalHost />
         </View>
       </ThemeProvider>
     </SafeAreaProvider>

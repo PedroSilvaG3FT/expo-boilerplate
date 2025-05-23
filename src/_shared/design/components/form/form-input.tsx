@@ -26,7 +26,7 @@ export default function AppFormInput(props: AppFormInputProps) {
         <View className={cn(containerClassName, "w-full")}>
           {label && (
             <Text className="mb-1 text-foreground text-sm font-medium">
-              {required && <Text className="text-red-500">*</Text>}
+              {required && <Text className="text-red-400">*</Text>}
               {label}
             </Text>
           )}
@@ -36,11 +36,11 @@ export default function AppFormInput(props: AppFormInputProps) {
             onChangeText={onChange}
             onBlur={onBlur}
             value={value}
-            className={cn(error ? "border-red-500" : "", inputProps.className)}
+            className={cn(error ? "border-red-400" : "", inputProps.className)}
           />
 
           {error && (
-            <Text className="mt-1 text-red-500 text-xs">
+            <Text className="mt-1 text-red-400 text-xs">
               {error.message?.toString()}
             </Text>
           )}

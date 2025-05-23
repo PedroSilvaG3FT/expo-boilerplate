@@ -9,7 +9,7 @@ interface State {
 const uiStore = createStore<State>({
   name: "ui",
   state: (set) => ({
-    theme: EThemeType.dark,
+    theme: EThemeType.light,
     setTheme: (theme) => set({ theme }),
   }),
 });
