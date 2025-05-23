@@ -1,6 +1,7 @@
 import * as DialogPrimitive from "@rn-primitives/dialog";
 import * as React from "react";
 import { Platform, StyleSheet, View, type ViewProps } from "react-native";
+import Animated, { FadeIn, FadeOut } from "react-native-reanimated";
 import { X } from "src/_shared/design/lib/icons/X";
 import { cn } from "src/_shared/design/lib/utils";
 
@@ -41,26 +42,21 @@ function DialogOverlayNative({
   ref?: React.RefObject<DialogPrimitive.OverlayRef>;
   children?: React.ReactNode;
 }) {
-  const { open } = DialogPrimitive.useRootContext();
   return (
     <DialogPrimitive.Overlay
       style={StyleSheet.absoluteFill}
       className={cn(
         "flex bg-black/80 justify-center items-center p-2",
-        open ? "opacity-100 transition-opacity duration-150" : "opacity-0",
         className
       )}
       {...props}
     >
-      <View
-        className={cn(
-          open
-            ? "opacity-100 scale-100 transition-all duration-150"
-            : "opacity-0 scale-95"
-        )}
+      <Animated.View
+        entering={FadeIn.duration(150)}
+        exiting={FadeOut.duration(150)}
       >
         {children}
-      </View>
+      </Animated.View>
     </DialogPrimitive.Overlay>
   );
 }
@@ -171,7 +167,6 @@ function DialogDescription({
     />
   );
 }
-
 export interface IDialogProps {
   isOpen: boolean;
   children?: React.ReactNode;

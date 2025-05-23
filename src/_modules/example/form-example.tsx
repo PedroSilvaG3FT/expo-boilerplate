@@ -122,7 +122,7 @@ export default function FormExample() {
               </DialogDescription>
             </DialogHeader>
 
-            <AppView className="w-[400px] max-w-[90dvw]">
+            <AppView className="w-[400px] max-w-[80vw]">
               <AppText>{value}</AppText>
             </AppView>
 
