@@ -18,7 +18,6 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/_shared/design/ui/dialog";
-import { Separator } from "@/_shared/design/ui/separator";
 import { IFormOption } from "@/_shared/interface/_form-option.interface";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
@@ -65,8 +64,7 @@ export default function FormExample() {
   return (
     <FormContainer {...form}>
       <AppView className="flex flex-col gap-8">
-        <AppText>Form example</AppText>
-        <Separator className="w-full" />
+        <AppText className="font-semibold">Form example</AppText>
 
         <AppFormInput
           label="Text"

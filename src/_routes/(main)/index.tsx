@@ -1,31 +1,26 @@
 import FormExample from "@/_modules/example/form-example";
 import AppText from "@/_shared/design/components/app-text";
+import AppToggleTheme from "@/_shared/design/components/app-toggle-theme";
 import AppView from "@/_shared/design/components/app-view";
-import { Button } from "@/_shared/design/ui/button";
-import { EThemeType } from "@/_shared/enums/theme.enum";
-import uiStore from "@/store/ui.store";
+import { Separator } from "@/_shared/design/ui/separator";
 import { Link } from "expo-router";
 import { ScrollView } from "react-native";
 
 export default function HomeScreen() {
-  const _uiStore = uiStore((state) => state);
-
   return (
     <ScrollView>
       <AppView className="p-6 h-full">
-        <AppText>Home</AppText>
+        <AppView className="flex-row justify-between items-center">
+          <AppText className="font-semibold" type="title">
+            Home
+          </AppText>
+
+          <AppToggleTheme />
+        </AppView>
+
+        <Separator className="my-8" />
 
         <FormExample />
-
-        <Button
-          className="mt-4"
-          onPress={() => {
-            if (_uiStore.theme === "dark") _uiStore.setTheme(EThemeType.light);
-            else _uiStore.setTheme(EThemeType.dark);
-          }}
-        >
-          <AppText>Toggle theme</AppText>
-        </Button>
 
         <Link href="/(auth)/sign-in">
           <AppText>Login</AppText>

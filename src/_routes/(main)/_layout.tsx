@@ -12,15 +12,11 @@ export default function MainLayout() {
 
   return (
     <SafeAreaView style={{ flex: 1 }} edges={["top"]}>
-      <AppView className="px-6">
-        <AppText>Header</AppText>
-      </AppView>
-
       <Stack screenOptions={{ headerShown: false }} />
 
       <AppView
-        className="!bg-primary px-6 pt-4"
         style={{ paddingBottom: Math.max(insets.bottom, 16) }}
+        className="!bg-secondary rounded-t-3xl px-6 pt-4 flex justify-center items-center"
       >
         <AppText>Footer</AppText>
       </AppView>
