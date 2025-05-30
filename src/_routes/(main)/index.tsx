@@ -1,4 +1,7 @@
-import FormExample from "@/_modules/example/form-example";
+import EnviromentExample from "@/_modules/example/enviroment.example";
+import FormExample from "@/_modules/example/form.example";
+import LoadingExample from "@/_modules/example/loading.example";
+import RequestExample from "@/_modules/example/request.example";
 import AppText from "@/_shared/design/components/app-text";
 import AppToggleTheme from "@/_shared/design/components/app-toggle-theme";
 import AppView from "@/_shared/design/components/app-view";
@@ -21,9 +24,21 @@ export default function HomeScreen() {
         <Separator className="my-8" />
 
         <FormExample />
+        <Separator className="my-8" />
 
-        <Link href="/(auth)/sign-in">
-          <AppText>Login</AppText>
+        <EnviromentExample />
+        <Separator className="my-8" />
+
+        <LoadingExample />
+        <Separator className="my-8" />
+
+        <RequestExample />
+
+        <Link
+          href="/(auth)/sign-in"
+          className="w-full text-center mt-4 underline"
+        >
+          <AppText>Go to Login</AppText>
         </Link>
       </AppView>
     </ScrollView>

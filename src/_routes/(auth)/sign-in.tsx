@@ -3,8 +3,9 @@ import AppView from "@/_shared/design/components/app-view";
 import { FormContainer } from "@/_shared/design/components/form";
 import AppFormInput from "@/_shared/design/components/form/form-input";
 import { Button } from "@/_shared/design/ui/button";
+import { useAuth } from "@/contexts/auth.context";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Link } from "expo-router";
+import { Link, useRouter } from "expo-router";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
@@ -13,14 +14,19 @@ const formSchema = z.object({
   password: z.string().min(1, "Required field"),
 });
 
+interface IFormState extends z.infer<typeof formSchema> {}
+
 export default function SignIn() {
-  const form = useForm<z.infer<typeof formSchema>>({
+  const router = useRouter();
+  const { signIn } = useAuth();
+
+  const form = useForm<IFormState>({
     resolver: zodResolver(formSchema),
     defaultValues: { email: "", password: "" },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
+  function onSubmit(values: IFormState) {
+    signIn(values.email, values.password).then(() => router.push("/"));
   }
 
   return (

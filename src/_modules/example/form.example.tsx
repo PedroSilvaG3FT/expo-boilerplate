@@ -64,7 +64,9 @@ export default function FormExample() {
   return (
     <FormContainer {...form}>
       <AppView className="flex flex-col gap-8">
-        <AppText className="font-semibold">Form example</AppText>
+        <AppText type="subtitle" className="font-semibold">
+          Form
+        </AppText>
 
         <AppFormInput
           label="Text"
