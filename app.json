@@ -51,7 +51,8 @@
           "configureAndroidBackup": true,
           "faceIDPermission": "Allow expo-boilerplate to access your Face ID biometric data."
         }
-      ]
+      ],
+      "expo-font"
     ],
     "experiments": {
       "typedRoutes": true
@@ -65,7 +66,12 @@
       }
     },
     "packagerOpts": {
-      "sourceExts": ["js", "jsx", "svg", "svgx"],
+      "sourceExts": [
+        "js",
+        "jsx",
+        "svg",
+        "svgx"
+      ],
       "transformer": "node_modules/react-native-svg-transformer/index.js"
     }
   }

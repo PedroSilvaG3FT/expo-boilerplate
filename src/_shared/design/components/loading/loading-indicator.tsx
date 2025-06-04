@@ -8,7 +8,7 @@ interface IProps {
 }
 
 export default function AppLoadingIndicator(props: IProps) {
-  const { color = "#FAD13C", className = "" } = props;
+  const { color = "#19323A", className = "" } = props;
 
   const bounceValue1 = useRef(new Animated.Value(0)).current;
   const bounceValue2 = useRef(new Animated.Value(0)).current;

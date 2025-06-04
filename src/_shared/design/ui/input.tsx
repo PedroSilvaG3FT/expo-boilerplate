@@ -9,6 +9,7 @@ import {
   View,
 } from "react-native";
 import { TextInputMask, TextInputMaskTypeProp } from "react-native-masked-text";
+import { APP_FONT_FAMILY } from "../lib/constants";
 
 interface InputProps extends TextInputProps {
   mask?: string;
@@ -52,7 +53,7 @@ const Input = React.forwardRef<TextInput, InputProps>(
     );
 
     const inputBaseClasses = cn(
-      "h-12 native:h-16 border border-input native:dark:border-input/20 dark:border-input/80 rounded-md px-3 text-base bg-background text-foreground",
+      "h-14 border border-input native:dark:border-input/20 dark:border-input/80 rounded px-3 text-base bg-background text-foreground",
       inputClassName
     );
 
@@ -75,7 +76,11 @@ const Input = React.forwardRef<TextInput, InputProps>(
             onChangeText={handleChange}
             className={inputBaseClasses}
             placeholderTextColor={placeholderColor}
-            style={{ backgroundColor, color: textColor }}
+            style={{
+              backgroundColor,
+              color: textColor,
+              fontFamily: APP_FONT_FAMILY,
+            }}
             secureTextEntry={secureTextEntry && !isShowPass}
             {...props}
           />

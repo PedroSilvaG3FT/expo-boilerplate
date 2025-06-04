@@ -2,7 +2,7 @@ import AppText from "@/_shared/design/components/app-text";
 import AppView from "@/_shared/design/components/app-view";
 import { FormContainer } from "@/_shared/design/components/form";
 import AppFormInput from "@/_shared/design/components/form/form-input";
-import { Button } from "@/_shared/design/ui/button";
+import { Button, ButtonText } from "@/_shared/design/ui/button";
 import { useAuth } from "@/contexts/auth.context";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Link, useRouter } from "expo-router";
@@ -50,7 +50,7 @@ export default function SignIn() {
           />
 
           <Button className="mt-4" onPress={form.handleSubmit(onSubmit)}>
-            <AppText>Entrar</AppText>
+            <ButtonText>Entrar</ButtonText>
           </Button>
         </FormContainer>
 

@@ -2,7 +2,7 @@ import { IFormOption } from "@/_shared/interface/_form-option.interface";
 import { useThemeColor } from "@/hooks/useThemeColor";
 import React, { useEffect, useRef, useState } from "react";
 import { Control, Controller } from "react-hook-form";
-import { LayoutChangeEvent, Text } from "react-native";
+import { LayoutChangeEvent, Platform } from "react-native";
 import {
   Select,
   SelectContent,
@@ -73,7 +73,9 @@ export default function AppFormSelect(props: IAppFormSelectProps) {
                 </SelectValue>
               </SelectTrigger>
 
-              <SelectContent style={{ width: triggerWidth }}>
+              <SelectContent
+                style={{ width: Platform.OS === "web" ? "100%" : triggerWidth }}
+              >
                 {props.options.map((item, index) => (
                   <SelectItem label={item.label} key={index} value={item.value}>
                     {item.label}
@@ -83,7 +85,9 @@ export default function AppFormSelect(props: IAppFormSelectProps) {
             </Select>
 
             {error && (
-              <Text className="mt-2 text-sm text-red-400">{error.message}</Text>
+              <AppText className="mt-2 text-sm text-red-400">
+                {error.message}
+              </AppText>
             )}
           </AppView>
         );

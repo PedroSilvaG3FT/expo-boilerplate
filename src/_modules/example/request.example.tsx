@@ -1,8 +1,7 @@
 import AppText from "@/_shared/design/components/app-text";
 import AppView from "@/_shared/design/components/app-view";
-import { Button } from "@/_shared/design/ui/button";
+import { Button, ButtonText } from "@/_shared/design/ui/button";
 import React from "react";
-import { Text } from "react-native";
 
 export default function RequestExample() {
   const handleRequestClick = () => {};
@@ -11,7 +10,7 @@ export default function RequestExample() {
     <AppView>
       <AppText type="subtitle">Request</AppText>
       <Button onPress={handleRequestClick}>
-        <Text>Request</Text>
+        <ButtonText>Request</ButtonText>
       </Button>
     </AppView>
   );

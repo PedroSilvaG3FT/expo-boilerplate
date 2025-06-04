@@ -7,7 +7,7 @@ import AppFormRadioGroup from "@/_shared/design/components/form/form-radio-group
 import AppFormSelect from "@/_shared/design/components/form/form-select";
 import AppFormSwitch from "@/_shared/design/components/form/form-switch";
 import AppFormTextarea from "@/_shared/design/components/form/form-textarea";
-import { Button } from "@/_shared/design/ui/button";
+import { Button, ButtonText } from "@/_shared/design/ui/button";
 import {
   Dialog,
   DialogClose,
@@ -110,7 +110,7 @@ export default function FormExample() {
         <Dialog>
           <DialogTrigger asChild>
             <Button className="mt-4" onPress={form.handleSubmit(onSubmit)}>
-              <AppText>Submit</AppText>
+              <ButtonText>Submit</ButtonText>
             </Button>
           </DialogTrigger>
 
@@ -129,7 +129,7 @@ export default function FormExample() {
             <DialogFooter>
               <DialogClose asChild>
                 <Button>
-                  <AppText>Back</AppText>
+                  <ButtonText>Submit</ButtonText>
                 </Button>
               </DialogClose>
             </DialogFooter>

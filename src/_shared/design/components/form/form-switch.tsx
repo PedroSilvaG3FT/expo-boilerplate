@@ -1,7 +1,8 @@
 import React from "react";
 import { Control, Controller } from "react-hook-form";
-import { Text, View } from "react-native";
+import { View } from "react-native";
 import { Switch } from "../../ui/switch";
+import AppText from "../app-text";
 
 interface IAppFormSwitchProps {
   name: string;
@@ -23,11 +24,15 @@ export default function AppFormSwitch(props: IAppFormSwitchProps) {
               className={props.className}
               onCheckedChange={field.onChange}
             />
-            <Text className="text-foreground">{props.label}</Text>
+            <AppText className="text-foreground native:ml-2">
+              {props.label}
+            </AppText>
           </View>
 
           {error && (
-            <Text className="mt-2 text-sm text-red-400">{error.message}</Text>
+            <AppText className="mt-2 text-sm text-red-400">
+              {error.message}
+            </AppText>
           )}
         </View>
       )}

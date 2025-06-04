@@ -8,6 +8,11 @@ import { WrapperProvider } from "@/contexts/wrapper.context";
 import authStore from "@/store/auth.store";
 import uiStore from "@/store/ui.store";
 import {
+  Poppins_300Light,
+  Poppins_400Regular,
+  Poppins_600SemiBold,
+} from "@expo-google-fonts/poppins";
+import {
   DarkTheme,
   DefaultTheme,
   Theme,
@@ -45,12 +50,14 @@ export default function RootLayout() {
   const [isColorSchemeLoaded, setIsColorSchemeLoaded] = React.useState(false);
 
   const [loaded] = useFonts({
-    SpaceMono: require("../assets/fonts/SpaceMono-Regular.ttf"),
+    Poppins_300Light,
+    Poppins_400Regular,
+    Poppins_600SemiBold,
   });
 
   useEffect(() => {
     if (loaded) {
-      setTimeout(() => SplashScreen.hideAsync(), 3000);
+      SplashScreen.hideAsync();
     }
   }, [loaded]);
 
@@ -81,7 +88,7 @@ export default function RootLayout() {
             <StatusBar style={isDarkColorScheme ? "light" : "dark"} />
 
             <View
-              className={isDarkColorScheme ? "dark" : ""}
+              className={isDarkColorScheme ? "dark font-sans" : "font-sans"}
               style={{
                 flex: 1,
                 backgroundColor: isDarkColorScheme

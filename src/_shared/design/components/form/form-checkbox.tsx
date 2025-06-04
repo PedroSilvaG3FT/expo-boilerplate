@@ -1,7 +1,8 @@
 import React from "react";
 import { Control, Controller } from "react-hook-form";
-import { Text, TouchableOpacity, View } from "react-native";
+import { TouchableOpacity, View } from "react-native";
 import { Checkbox } from "../../ui/checkbox";
+import AppText from "../app-text";
 
 interface IAppFormCheckboxProps {
   name: string;
@@ -27,11 +28,15 @@ export default function AppFormCheckbox(props: IAppFormCheckboxProps) {
               onCheckedChange={(checked) => field.onChange(checked)}
               className={props.className}
             />
-            <Text className="text-foreground">{props.label}</Text>
+            <AppText className="text-foreground native:ml-2">
+              {props.label}
+            </AppText>
           </TouchableOpacity>
 
           {error && (
-            <Text className="mt-2 text-sm text-red-400">{error.message}</Text>
+            <AppText className="mt-2 text-sm text-red-400">
+              {error.message}
+            </AppText>
           )}
         </View>
       )}

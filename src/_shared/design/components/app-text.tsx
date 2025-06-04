@@ -1,5 +1,6 @@
 import { useThemeColor } from "@/hooks/useThemeColor";
 import { StyleSheet, Text, type TextProps } from "react-native";
+import { APP_FONT_FAMILY } from "../lib/constants";
 
 export type IProps = TextProps & {
   lightColor?: string;
@@ -19,7 +20,7 @@ export default function AppText({
   return (
     <Text
       style={[
-        { color },
+        { color, fontFamily: APP_FONT_FAMILY },
         type === "default" ? styles.default : undefined,
         type === "title" ? styles.title : undefined,
         type === "defaultSemiBold" ? styles.defaultSemiBold : undefined,

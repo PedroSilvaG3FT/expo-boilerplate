@@ -16,3 +16,5 @@ export const NAV_THEME = {
     text: "hsl(0 0% 98%)",
   },
 };
+
+export const APP_FONT_FAMILY = "Poppins_300Light";

@@ -1,7 +1,8 @@
 import React from "react";
 import { Control, Controller } from "react-hook-form";
-import { Text, View } from "react-native";
+import { View } from "react-native";
 import { Textarea } from "../../ui/textarea";
+import AppText from "../app-text";
 
 interface IAppFormTextareaProps {
   name: string;
@@ -21,10 +22,12 @@ export default function AppFormTextarea(props: IAppFormTextareaProps) {
       render={({ field, fieldState: { error } }) => (
         <View>
           {props.label && (
-            <Text className="mb-2 font-medium text-foreground">
-              {props.required && <Text className="text-red-400 mr-0.5">*</Text>}
+            <AppText className="mb-2 font-medium text-foreground">
+              {props.required && (
+                <AppText className="text-red-400 mr-0.5">*</AppText>
+              )}
               {props.label}
-            </Text>
+            </AppText>
           )}
 
           <Textarea
@@ -38,7 +41,9 @@ export default function AppFormTextarea(props: IAppFormTextareaProps) {
           />
 
           {error && (
-            <Text className="mt-2 text-sm text-red-400">{error.message}</Text>
+            <AppText className="mt-2 text-sm text-red-400">
+              {error.message}
+            </AppText>
           )}
         </View>
       )}

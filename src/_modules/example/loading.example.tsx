@@ -1,9 +1,8 @@
 import AppText from "@/_shared/design/components/app-text";
 import AppView from "@/_shared/design/components/app-view";
 import AppLoadingIndicator from "@/_shared/design/components/loading/loading-indicator";
-import { Button } from "@/_shared/design/ui/button";
+import { Button, ButtonText } from "@/_shared/design/ui/button";
 import loadingStore from "@/store/loading.store";
-import { Text } from "react-native";
 
 export default function LoadingExample() {
   const _loadingStore = loadingStore((state) => state);
@@ -12,13 +11,14 @@ export default function LoadingExample() {
     _loadingStore.setShow(true, "Example loading...");
     setTimeout(() => _loadingStore.setShow(false), 3500);
   };
+
   return (
     <AppView>
       <AppText type="subtitle">Loading</AppText>
       <AppText>Indicator</AppText>
       <AppLoadingIndicator />
       <Button onPress={handleShowLoading}>
-        <Text>Show loading</Text>
+        <ButtonText>Show loading</ButtonText>
       </Button>
     </AppView>
   );

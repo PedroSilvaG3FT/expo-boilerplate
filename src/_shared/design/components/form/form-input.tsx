@@ -1,7 +1,8 @@
 import { cn } from "@/_shared/design/lib/utils";
 import { Control, Controller } from "react-hook-form";
-import { Text, View } from "react-native";
+import { View } from "react-native";
 import { Input } from "../../ui/input";
+import AppText from "../app-text";
 
 interface AppFormInputProps extends React.ComponentProps<typeof Input> {
   name: string;
@@ -25,10 +26,10 @@ export default function AppFormInput(props: AppFormInputProps) {
       }) => (
         <View className={cn(containerClassName, "w-full")}>
           {label && (
-            <Text className="mb-1 text-foreground text-sm font-medium">
-              {required && <Text className="text-red-400">*</Text>}
+            <AppText className="mb-1 text-foreground text-sm font-medium">
+              {required && <AppText className="text-red-400">*</AppText>}
               {label}
-            </Text>
+            </AppText>
           )}
 
           <Input
@@ -40,9 +41,9 @@ export default function AppFormInput(props: AppFormInputProps) {
           />
 
           {error && (
-            <Text className="mt-1 text-red-400 text-xs">
+            <AppText className="mt-1 text-red-400 text-xs">
               {error.message?.toString()}
-            </Text>
+            </AppText>
           )}
         </View>
       )}

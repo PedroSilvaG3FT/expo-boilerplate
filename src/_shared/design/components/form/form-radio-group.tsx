@@ -1,9 +1,10 @@
 import { IFormOption } from "@/_shared/interface/_form-option.interface";
 import React from "react";
 import { Control, Controller } from "react-hook-form";
-import { Text, TouchableOpacity, View } from "react-native";
+import { TouchableOpacity, View } from "react-native";
 import { cn } from "src/_shared/design/lib/utils";
 import { RadioGroup, RadioGroupItem } from "../../ui/radio-group";
+import AppText from "../app-text";
 
 interface IAppFormRadioGroupProps {
   name: string;
@@ -22,10 +23,12 @@ export default function AppFormRadioGroup(props: IAppFormRadioGroupProps) {
       render={({ field, fieldState: { error } }) => (
         <View>
           {props.label && (
-            <Text className="mb-2 font-medium text-foreground">
-              {props.required && <Text className="text-red-400 mr-0.5">*</Text>}
+            <AppText className="mb-2 font-medium text-foreground">
+              {props.required && (
+                <AppText className="text-red-400 mr-0.5">*</AppText>
+              )}
               {props.label}
-            </Text>
+            </AppText>
           )}
 
           <RadioGroup
@@ -40,14 +43,18 @@ export default function AppFormRadioGroup(props: IAppFormRadioGroupProps) {
                   onPress={() => field.onChange(item.value)}
                   activeOpacity={0.7}
                 >
-                  <Text className="text-foreground">{item.label}</Text>
+                  <AppText className="text-foreground native:ml-2">
+                    {item.label}
+                  </AppText>
                 </TouchableOpacity>
               </View>
             ))}
           </RadioGroup>
 
           {error && (
-            <Text className="mt-2 text-sm text-red-400">{error.message}</Text>
+            <AppText className="mt-2 text-sm text-red-400">
+              {error.message}
+            </AppText>
           )}
         </View>
       )}
