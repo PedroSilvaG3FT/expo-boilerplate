@@ -4,6 +4,8 @@ import EnviromentExample from "@/_modules/example/enviroment.example";
 import FormExample from "@/_modules/example/form.example";
 import LoadingExample from "@/_modules/example/loading.example";
 import RequestExample from "@/_modules/example/request.example";
+import RulerPickerExample from "@/_modules/example/ruler-picker.example";
+import SheetExample from "@/_modules/example/sheet.example";
 import AppText from "@/_shared/design/components/app-text";
 import AppToggleTheme from "@/_shared/design/components/app-toggle-theme";
 import AppView from "@/_shared/design/components/app-view";
@@ -41,6 +43,12 @@ export default function HomeScreen() {
         <Separator className="my-8" />
 
         <CalendarExample />
+        <Separator className="my-8" />
+
+        <RulerPickerExample />
+        <Separator className="my-8" />
+
+        <SheetExample />
 
         <Link
           href="/(auth)/sign-in"

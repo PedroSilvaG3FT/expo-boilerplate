@@ -1,4 +1,5 @@
 import { PUBLIC_ROUTES } from "@/_shared/constants/public-routes";
+import "react-native-reanimated";
 import "../../global.css";
 
 import AppLoading from "@/_shared/design/components/loading";
@@ -81,12 +82,11 @@ export default function RootLayout() {
     return <Redirect href="/(auth)/sign-in" />;
 
   return (
-    <SafeAreaProvider>
-      <QueryClientProvider client={queryClient}>
-        <ThemeProvider value={isDarkColorScheme ? DARK_THEME : LIGHT_THEME}>
-          <WrapperProvider>
+    <WrapperProvider>
+      <SafeAreaProvider>
+        <QueryClientProvider client={queryClient}>
+          <ThemeProvider value={isDarkColorScheme ? DARK_THEME : LIGHT_THEME}>
             <StatusBar style={isDarkColorScheme ? "light" : "dark"} />
-
             <View
               className={isDarkColorScheme ? "dark font-sans" : "font-sans"}
               style={{
@@ -105,10 +105,10 @@ export default function RootLayout() {
               <PortalHost />
               <AppLoading />
             </View>
-          </WrapperProvider>
-        </ThemeProvider>
-      </QueryClientProvider>
-    </SafeAreaProvider>
+          </ThemeProvider>
+        </QueryClientProvider>
+      </SafeAreaProvider>
+    </WrapperProvider>
   );
 }
 
