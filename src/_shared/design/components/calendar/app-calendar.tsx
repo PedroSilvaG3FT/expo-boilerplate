@@ -1,30 +1,38 @@
 import { format, setMonth, setYear } from "date-fns";
 import { ChevronLeft, ChevronRight } from "lucide-react-native";
-import { useState } from "react";
 import { Calendar, CalendarProps } from "react-native-calendars";
 import { Separator } from "../../ui/separator";
 import AppView from "../app-view";
 import AppCalendarControls from "./app-calendar-controls";
+interface IProps extends CalendarProps {
+  selectedDate: string;
+}
 
-interface IProps extends CalendarProps {}
-
-export default function AppCalendar(props: IProps) {
-  const [currentDate, setCurrentDate] = useState(
-    props.initialDate || format(new Date(), "yyyy-MM-dd")
-  );
-
-  const selectedDate = new Date(currentDate);
-  const currentMonth = selectedDate.getMonth();
-  const currentYear = selectedDate.getFullYear();
+export default function AppCalendar({ selectedDate, ...props }: IProps) {
+  const selected = new Date(selectedDate);
+  const currentMonth = selected.getMonth();
+  const currentYear = selected.getFullYear();
 
   const updateMonth = (month: number) => {
-    const newDate = setMonth(new Date(currentDate), month);
-    setCurrentDate(format(newDate, "yyyy-MM-dd"));
+    const newDate = setMonth(new Date(selectedDate), month);
+    props.onDayPress?.({
+      month: month + 1,
+      day: newDate.getDate(),
+      year: newDate.getFullYear(),
+      timestamp: newDate.getTime(),
+      dateString: format(newDate, "yyyy-MM-dd"),
+    });
   };
 
   const updateYear = (year: number) => {
-    const newDate = setYear(new Date(currentDate), year);
-    setCurrentDate(format(newDate, "yyyy-MM-dd"));
+    const newDate = setYear(new Date(selectedDate), year);
+    props.onDayPress?.({
+      dateString: format(newDate, "yyyy-MM-dd"),
+      day: newDate.getDate(),
+      month: newDate.getMonth() + 1,
+      year,
+      timestamp: newDate.getTime(),
+    } as any);
   };
 
   return (
@@ -40,21 +48,37 @@ export default function AppCalendar(props: IProps) {
 
       <Calendar
         {...props}
-        key={currentDate}
-        current={currentDate}
+        key={selectedDate}
+        current={selectedDate}
         enableSwipeMonths={true}
         onPressArrowRight={(addMonth) => addMonth()}
         onPressArrowLeft={(subtractMonth) => subtractMonth()}
         renderArrow={(direction) =>
           direction === "left" ? <ChevronLeft /> : <ChevronRight />
         }
+        markingType="custom"
+        markedDates={{
+          [selectedDate]: {
+            customStyles: {
+              container: {
+                borderRadius: 8,
+                backgroundColor: "#BEDBFE",
+              },
+              text: { color: "#3B81F6" },
+            },
+          },
+        }}
         onMonthChange={(date) =>
-          setCurrentDate(
-            format(
+          props.onDayPress?.({
+            dateString: format(
               date.dateString ? new Date(date.dateString) : new Date(),
               "yyyy-MM-dd"
-            )
-          )
+            ),
+            day: 1,
+            year: date.year,
+            month: date.month,
+            timestamp: new Date(date.dateString).getTime(),
+          })
         }
       />
     </AppView>
