@@ -1,3 +1,5 @@
+import CalendarExample from "@/_modules/example/calendar.example";
+import CameraExample from "@/_modules/example/camera.example";
 import EnviromentExample from "@/_modules/example/enviroment.example";
 import FormExample from "@/_modules/example/form.example";
 import LoadingExample from "@/_modules/example/loading.example";
@@ -33,6 +35,12 @@ export default function HomeScreen() {
         <Separator className="my-8" />
 
         <RequestExample />
+        <Separator className="my-8" />
+
+        <CameraExample />
+        <Separator className="my-8" />
+
+        <CalendarExample />
 
         <Link
           href="/(auth)/sign-in"
