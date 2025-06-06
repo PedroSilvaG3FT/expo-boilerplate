@@ -1,9 +1,11 @@
 import { format, setMonth, setYear } from "date-fns";
+import * as Haptics from "expo-haptics";
 import { ChevronLeft, ChevronRight } from "lucide-react-native";
 import { Calendar, CalendarProps } from "react-native-calendars";
 import { Separator } from "../../ui/separator";
 import AppView from "../app-view";
 import AppCalendarControls from "./app-calendar-controls";
+
 interface IProps extends CalendarProps {
   selectedDate: string;
 }
@@ -14,6 +16,7 @@ export default function AppCalendar({ selectedDate, ...props }: IProps) {
   const currentYear = selected.getFullYear();
 
   const updateMonth = (month: number) => {
+    Haptics.selectionAsync();
     const newDate = setMonth(new Date(selectedDate), month);
     props.onDayPress?.({
       month: month + 1,
@@ -25,6 +28,7 @@ export default function AppCalendar({ selectedDate, ...props }: IProps) {
   };
 
   const updateYear = (year: number) => {
+    Haptics.selectionAsync();
     const newDate = setYear(new Date(selectedDate), year);
     props.onDayPress?.({
       dateString: format(newDate, "yyyy-MM-dd"),

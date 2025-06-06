@@ -30,6 +30,7 @@ const YEARS = Array.from(
 const scrollViewStyle: StyleProp<ViewStyle> = {
   gap: 18,
   padding: 8,
+  paddingHorizontal: 18,
 };
 
 const getHTMLElement = (ref: any): HTMLElement | null => {
@@ -124,8 +125,8 @@ export default function AppCalendarControls({
 
       <ScrollView
         horizontal
-        contentContainerStyle={scrollViewStyle}
         ref={monthScrollRef}
+        contentContainerStyle={scrollViewStyle}
       >
         {monthNames.map((month, index) => (
           <View
