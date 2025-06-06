@@ -27,6 +27,9 @@ export default function HomeScreen() {
 
         <Separator className="my-8" />
 
+        <RulerPickerExample />
+        <Separator className="my-8" />
+
         <FormExample />
         <Separator className="my-8" />
 
@@ -43,9 +46,6 @@ export default function HomeScreen() {
         <Separator className="my-8" />
 
         <CalendarExample />
-        <Separator className="my-8" />
-
-        <RulerPickerExample />
         <Separator className="my-8" />
 
         <SheetExample />

@@ -19,6 +19,7 @@ module.exports = {
         full: "9999px",
       },
       colors: {
+        "app-light-green": "hsl(var(--app-light-green))",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
