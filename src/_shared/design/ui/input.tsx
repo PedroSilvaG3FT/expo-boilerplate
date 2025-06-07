@@ -46,14 +46,14 @@ const Input = React.forwardRef<TextInput, InputProps>(
     const renderToggleIcon = () => (
       <TouchableOpacity
         onPress={() => setIsShowPass(!isShowPass)}
-        className="absolute right-3 top-3"
+        className="absolute right-4 top-[16px] opacity-45"
       >
         {isShowPass ? <EyeOff /> : <Eye />}
       </TouchableOpacity>
     );
 
     const inputBaseClasses = cn(
-      "h-14 border border-input native:dark:border-input/20 dark:border-input/80 rounded px-3 text-base bg-background text-foreground",
+      "h-16 border border-input native:dark:border-input/20 dark:border-input/80 rounded px-3 text-base bg-background text-foreground",
       inputClassName
     );
 
@@ -76,12 +76,12 @@ const Input = React.forwardRef<TextInput, InputProps>(
             onChangeText={handleChange}
             className={inputBaseClasses}
             placeholderTextColor={placeholderColor}
+            secureTextEntry={secureTextEntry && !isShowPass}
             style={{
               backgroundColor,
               color: textColor,
               fontFamily: APP_FONT_FAMILY,
             }}
-            secureTextEntry={secureTextEntry && !isShowPass}
             {...props}
           />
         )}

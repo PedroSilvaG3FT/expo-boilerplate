@@ -1,3 +1,5 @@
+import AppFooterWave from "@/_shared/design/components/app-footer-wave";
+import AppHeaderImage from "@/_shared/design/components/app-header";
 import AppText from "@/_shared/design/components/app-text";
 import AppView from "@/_shared/design/components/app-view";
 import { FormContainer } from "@/_shared/design/components/form";
@@ -30,42 +32,50 @@ export default function SignIn() {
   }
 
   return (
-    <AppView className="h-full p-8 flex items-center justify-center">
-      <AppView className="!bg-secondary rounded-3xl p-4 w-full">
-        <AppText className="mb-4">Login</AppText>
+    <AppView className="h-full">
+      <AppHeaderImage
+        wave="primary"
+        onBack={() => console.log("onBack")}
+        source={require("@/assets/images/header/yellow-dog.png")}
+      />
+
+      <AppView className="p-4 w-full">
+        <AppText className="my-6 text-center" type="subtitle">
+          Login
+        </AppText>
+
+        <AppText className="my-4 text-center opacity-40" type="default">
+          Acesse inserindo seu e-mail e senha
+        </AppText>
 
         <FormContainer {...form}>
           <AppFormInput
-            label="Email"
             name="email"
+            className="mb-4"
+            placeholder="e-mail"
             control={form.control}
-            placeholder="Enter your email"
           />
 
           <AppFormInput
+            secureTextEntry
             name="password"
-            label="Password"
+            placeholder="Senha"
             control={form.control}
-            placeholder="**********"
           />
 
+          <Link href="/(auth)/forgot-password" asChild>
+            <AppText className="self-end my-2" type="link">
+              Esqueci a senha
+            </AppText>
+          </Link>
+
           <Button className="mt-4" onPress={form.handleSubmit(onSubmit)}>
-            <ButtonText>Entrar</ButtonText>
+            <ButtonText>Confirmar</ButtonText>
           </Button>
         </FormContainer>
-
-        <Link href="/(auth)/sign-up">
-          <AppText>Cadastro</AppText>
-        </Link>
-
-        <Link href="/(auth)/forgot-password">
-          <AppText>Esqueci a senha</AppText>
-        </Link>
-
-        <Link href="/">
-          <AppText>Home</AppText>
-        </Link>
       </AppView>
+
+      <AppFooterWave type="primary" />
     </AppView>
   );
 }
