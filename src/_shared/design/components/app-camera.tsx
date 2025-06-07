@@ -18,7 +18,7 @@ export default function AppCamera({
   isOpen,
   onClose,
   onTakePhoto,
-  defaultFacing = "back",
+  defaultFacing = "front",
 }: IProps) {
   const cameraRef = useRef<any>(null);
   const [permission, requestPermission] = useCameraPermissions();
@@ -37,9 +37,12 @@ export default function AppCamera({
     setFacing((prev) => (prev === "back" ? "front" : "back"));
 
   return (
-    <AppView className="!bg-black" style={styles.overlay}>
+    <AppView
+      className="!bg-black justify-end z-[999]"
+      style={{ ...StyleSheet.absoluteFillObject }}
+    >
       <Show>
-        <Show.When condition={!permission.granted}>
+        <Show.When condition={permission.granted}>
           <CameraView
             facing={facing}
             ref={cameraRef}
@@ -80,18 +83,3 @@ export default function AppCamera({
     </AppView>
   );
 }
-
-const styles = StyleSheet.create({
-  overlay: {
-    ...StyleSheet.absoluteFillObject,
-    justifyContent: "flex-end",
-    zIndex: 999,
-  },
-  permissionContainer: {
-    ...StyleSheet.absoluteFillObject,
-    zIndex: 999,
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: "#000000",
-  },
-});

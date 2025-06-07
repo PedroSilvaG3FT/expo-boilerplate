@@ -5,10 +5,12 @@
   "scripts": {
     "start": "expo start -c",
     "reset-project": "node ./scripts/reset-project.js",
-    "android": "expo start --android",
-    "ios": "expo start --ios",
+    "android": "expo run:android",
+    "ios": "expo run:ios",
     "web": "expo start --web",
-    "lint": "expo lint"
+    "lint": "expo lint",
+    "android:generate-apk": "eas build --platform android --profile preview --local",
+    "android:generate-keystore": "keytool -genkeypair -v -keystore my-release-key.jks -keyalg RSA -keysize 2048 -validity 10000 -alias my-key-alias"
   },
   "dependencies": {
     "@babel/plugin-proposal-export-namespace-from": "^7.18.9",
@@ -90,7 +92,10 @@
     "tailwind-merge": "^3.3.0",
     "tailwindcss": "^3.4.17",
     "zod": "^3.25.20",
-    "zustand": "^5.0.5"
+    "zustand": "^5.0.5",
+    "expo-calendar": "~14.1.4",
+    "expo-dev-client": "~5.2.0",
+    "expo-image-manipulator": "~13.1.7"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",

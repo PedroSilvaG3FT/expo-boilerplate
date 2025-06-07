@@ -42,7 +42,7 @@ const buttonTextVariants = cva(
         default: "text-white",
         destructive: "text-destructive-foreground",
         outline: "group-active:text-accent-foreground",
-        secondary: "text-white group-active:text-white",
+        secondary: "text-foreground group-active:text-white",
         ghost: "group-active:text-accent-foreground",
         link: "text-primary group-active:underline",
       },
